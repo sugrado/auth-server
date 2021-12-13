@@ -4,15 +4,15 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace AuthServer.Core.DataAccess
+namespace AuthServer.Core.DataAccess.EntityFramework
 {
-    public interface IEntityRepository<TEntity> where TEntity : class
+    public interface EfEntityRepositoryBase<TEntity> where TEntity : class, new()
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();
-        Task<IQueryable<TEntity>> Where(Expression<Func<TEntity, bool>> predicate);
+        IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
         Task AddAsync(TEntity entity);
         void Remove(TEntity entity);
-        void Update(TEntity entity);
+        TEntity Update(TEntity entity);
     }
 }
