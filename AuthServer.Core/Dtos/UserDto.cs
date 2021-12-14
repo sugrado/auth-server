@@ -1,6 +1,6 @@
 ﻿namespace AuthServer.Core.Dtos
 {
-    class UserDto
+    public class UserDto
     {
         public int Id { get; set; }
         public string UserName { get; set; }
