@@ -18,6 +18,6 @@ namespace AuthServer.Core.Service
 
         Task<Response<NoDataDto>> Remove(int id);
 
-        Task<Response<TDto>> Update(TDto entity, int id);
+        Task<Response<NoDataDto>> Update(TDto entity, int id);
     }
 }

@@ -5,16 +5,10 @@ namespace AuthServer.Service
 {
     public static class ObjectMapper
     {
-        private static readonly Lazy<IMapper> lazy = new(() =>
-        {
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.AddProfile<DtoMapper>();
-            });
+        private static readonly Lazy<IMapper> Lazy = new(() =>
+             new MapperConfiguration(cfg => cfg.AddProfile<DtoMapper>()).CreateMapper()
+        );
 
-            return config.CreateMapper();
-        });
-
-        public static IMapper Mapper => lazy.Value;
+        public static IMapper Mapper => Lazy.Value;
     }
 }
