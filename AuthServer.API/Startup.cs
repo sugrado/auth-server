@@ -24,6 +24,7 @@ namespace AuthServer.API
         {
             services.Configure<CustomTokenOptions>(Configuration.GetSection("TokenOptions"));
             services.Configure<List<Client>>(Configuration.GetSection("Clients"));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

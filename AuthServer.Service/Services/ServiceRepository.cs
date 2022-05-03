@@ -14,9 +14,9 @@ namespace AuthServer.Service.Services
     public class ServiceRepository<TEntity, TDto> : IServiceRepository<TEntity, TDto> where TEntity : class, new() where TDto : class
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IEfEntityRepositoryBase<TEntity> _efEntityRepositoryBase;
+        private readonly IEntityRepository<TEntity> _efEntityRepositoryBase;
 
-        public ServiceRepository(IUnitOfWork unitOfWork, IEfEntityRepositoryBase<TEntity> efEntityRepositoryBase)
+        public ServiceRepository(IUnitOfWork unitOfWork, IEntityRepository<TEntity> efEntityRepositoryBase)
         {
             _unitOfWork = unitOfWork;
             _efEntityRepositoryBase = efEntityRepositoryBase;

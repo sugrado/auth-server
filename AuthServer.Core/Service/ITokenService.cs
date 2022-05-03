@@ -7,6 +7,6 @@ namespace AuthServer.Core.Service
     public interface ITokenService
     {
         TokenDto CreateToken(User user);
-        ClientTokenDto CreateTokenByClien(Client client);
+        ClientTokenDto CreateTokenByClient(Client client);
     }
 }
