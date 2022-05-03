@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AuthServer.Core.DataAccess.EntityFramework
 {
-    public interface IEfEntityRepositoryBase<TEntity> where TEntity : class, new()
+    public interface IEntityRepository<TEntity> where TEntity : class, new()
     {
         Task<TEntity> GetByIdAsync(int id);
         Task<IEnumerable<TEntity>> GetAllAsync();

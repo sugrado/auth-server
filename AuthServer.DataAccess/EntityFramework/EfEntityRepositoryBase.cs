@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace AuthServer.DataAccess.EntityFramework
 {
-    public class GenericRepository<TEntity> : IEfEntityRepositoryBase<TEntity> where TEntity : class, new()
+    public class EfEntityRepositoryBase<TEntity> : IEntityRepository<TEntity> where TEntity : class, new()
     {
         private readonly DbContext _context;
         private readonly DbSet<TEntity> _dbSet;
 
-        public GenericRepository(AppDbContext context)
+        public EfEntityRepositoryBase(AppDbContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();
