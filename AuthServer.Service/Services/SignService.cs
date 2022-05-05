@@ -3,8 +3,9 @@ using System.Text;
 
 namespace AuthServer.Service.Services
 {
-    internal class SignService
+    public class SignService
     {
-        public static SecurityKey GetSymmetricSecurityKey(string securityKey) => new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
+        public static SecurityKey GetSymmetricSecurityKey(string securityKey) 
+            => new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
     }
 }
