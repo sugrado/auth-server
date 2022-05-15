@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AuthServer.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class AuthController : CustomBaseController
     {

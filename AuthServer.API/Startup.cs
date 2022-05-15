@@ -64,7 +64,7 @@ namespace AuthServer.API
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, opts =>
             {
-                var tokenOptions = Configuration.GetSection("TokenOption").Get<CustomTokenOptions>();
+                var tokenOptions = Configuration.GetSection("TokenOptions").Get<CustomTokenOptions>();
                 opts.TokenValidationParameters = new TokenValidationParameters()
                 {
                     ValidIssuer = tokenOptions.Issuer,
