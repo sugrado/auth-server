@@ -1,3 +1,4 @@
+using AuthServer.API.Validations;
 using AuthServer.Core.Configuration;
 using AuthServer.Core.DataAccess.EntityFramework;
 using AuthServer.Core.Entities.Concrete;
@@ -5,6 +6,7 @@ using AuthServer.Core.Service;
 using AuthServer.Core.UnitOfWork;
 using AuthServer.DataAccess.EntityFramework;
 using AuthServer.Service.Services;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -16,6 +18,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SharedLibrary.Configuration;
+using SharedLibrary.Extensions;
+using SharedLibrary.Services;
 using System;
 using System.Collections.Generic;
 
@@ -80,6 +84,13 @@ namespace AuthServer.API
             });
 
             services.AddControllers();
+
+            services.AddFluentValidation(opt =>
+            {
+                opt.RegisterValidatorsFromAssemblyContaining<CreateUserDtoValidator>();
+            });
+            services.UseCustomValidationResponse();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AuthServer.API", Version = "v1" });
@@ -95,6 +106,8 @@ namespace AuthServer.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AuthServer.API v1"));
             }
+
+            app.UseCustomException();
 
             app.UseHttpsRedirection();
 

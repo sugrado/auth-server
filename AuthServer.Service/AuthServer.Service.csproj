@@ -1,15 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="10.1.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="10.1.1" />
+		<PackageReference Include="FluentValidation.AspNetCore" Version="11.0.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\AuthServer.DataAccess\AuthServer.DataAccess.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\AuthServer.DataAccess\AuthServer.DataAccess.csproj" />
+	</ItemGroup>
 
 </Project>
